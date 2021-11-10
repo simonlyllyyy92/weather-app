@@ -10,3 +10,10 @@ body {
   background-size: cover;
   z-index: -1;
 }
+
+@media only screen and (max-width: 747px) {
+  .app {
+    width: unset;
+    height: unset;
+  }
+}
