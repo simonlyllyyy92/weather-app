@@ -5,7 +5,7 @@ export interface Weather {
   location: any;
   forecast: any;
 }
-
+// Api for getting current weather forcast information
 export const get_current_weather_by_city = (city: string) =>
   httpClient.get<Weather>("/forecast.json", {
     params: {

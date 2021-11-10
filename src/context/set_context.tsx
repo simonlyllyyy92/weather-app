@@ -1,6 +1,11 @@
 import { createContext, memo, useState } from "react";
 import React from "react";
 
+export interface DataType {
+  date: any;
+  value: any;
+}
+
 export interface WeatherContextProps {
   current_temp: string;
   city: string;
@@ -9,6 +14,7 @@ export interface WeatherContextProps {
   local_time: string;
   wind_level: string;
   forecast: Array<any>;
+  mapped_current_weather: Array<DataType>;
   handleCountryChange: (newLocation: string) => void;
   handleTempChange: (newTemp: string) => void;
   handleCurrentWeatherChange: (props: Partial<WeatherContextProps>) => void;
@@ -22,6 +28,7 @@ const init_value: WeatherContextProps = {
   local_time: "",
   wind_level: "",
   forecast: [],
+  mapped_current_weather: [],
   handleCountryChange: (newLocation: string) => {},
   handleTempChange: (newTemp: string) => {},
   handleCurrentWeatherChange: (props: Partial<WeatherContextProps>) => {},
@@ -62,6 +69,7 @@ export const WeatherContextProvider = memo(
       local_time: "",
       wind_level: "",
       forecast: [],
+      mapped_current_weather: [],
       handleCountryChange,
       handleTempChange,
       handleCurrentWeatherChange,
