@@ -1,5 +1,6 @@
 import * as d3 from "d3";
-import { MutableRefObject } from "react";
+import { Dispatch, MutableRefObject, SetStateAction } from "react";
+
 //Type from context
 import { DataType } from "../context/set_context";
 
@@ -15,14 +16,14 @@ export const ChartsGeneration = (
 ) => {
   //Value from Context, here as props
   let mappedData = mapped_current_weather;
+  const currentWidth = parseInt(d3.select("#d3_container").style("width")) - 10;
+  const currentHeight =
+    parseInt(d3.select("#d3_container").style("height")) - 10;
 
   //Setting default svg height and width
-  const svgWidth = 600,
-    svgHeight = 400;
   const margin = { top: 28, right: 20, bottom: 30, left: 20 };
-  const width = svgWidth - margin.left - margin.right;
-  const height = svgHeight - margin.top - margin.bottom;
-
+  const width = currentWidth - margin.left - margin.right;
+  const height = currentHeight - margin.top - margin.bottom;
   /**
    * @return Maximum temperature value and Minimum temperature value
    */
@@ -46,8 +47,8 @@ export const ChartsGeneration = (
   //Set up svg image height and width
   const svg = d3
     .select(svgRef.current)
-    .attr("width", svgWidth)
-    .attr("height", svgHeight);
+    .attr("width", currentWidth)
+    .attr("height", currentHeight);
 
   // Make sure each time the page reload, the svg will be cleared !important
   svg.selectAll("*").remove();

@@ -1,0 +1,15 @@
+.current-weather-list-container {
+  width: 100%;
+}
+
+/* responsiveness */
+@media only screen and (max-width: 1300px) {
+  .current-weather-list-container {
+    width: 333px;
+  }
+}
+@media only screen and (max-width: 747px) {
+  .current-weather-list-container {
+    width: 100%;
+  }
+}

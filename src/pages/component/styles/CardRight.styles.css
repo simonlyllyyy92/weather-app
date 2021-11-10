@@ -28,3 +28,38 @@
   flex-direction: column;
   align-items: center;
 }
+
+.card_right .list-container {
+  width: 90%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+/* responsiveness */
+@media only screen and (max-width: 1300px) {
+  .card_right {
+    height: 45%;
+    width: 100%;
+  }
+  .card_right_content_box {
+    height: 95% !important;
+  }
+  .card_right .list-container {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+  }
+}
+
+@media only screen and (max-width: 747px) {
+  .card_right .list-container {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+  }
+  .card_right {
+    height: 720px;
+    width: 100%;
+  }
+}

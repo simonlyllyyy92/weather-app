@@ -37,7 +37,9 @@ export const CardLeft = (): JSX.Element => {
           <div className="card_left_content_box">
             <div className="card_header">
               <div className="city">
-                <div className="city_name">{city}</div>
+                <div className="city_name" data-testid="target_city">
+                  {city}
+                </div>
                 <div className="city_time">{local_time}</div>
               </div>
             </div>
@@ -64,9 +66,10 @@ export const CardLeft = (): JSX.Element => {
                 <img
                   src={windy_icon}
                   alt=""
-                  width="58px"
-                  height="58px"
+                  width="48px"
+                  height="48px"
                   className="weather_icon"
+                  style={{ marginTop: "12px" }}
                 />
                 <span className="iconlabel">{`${wind_level}km/h`}</span>
               </div>
@@ -75,7 +78,7 @@ export const CardLeft = (): JSX.Element => {
         </div>
       ) : (
         // if no city has been entered yet
-        <div className="card_left_welcome"></div>
+        <div className="card_left_welcome" data-testid="welcome-card"></div>
       )}
     </>
   );

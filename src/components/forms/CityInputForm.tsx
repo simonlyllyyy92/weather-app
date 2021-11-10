@@ -71,13 +71,13 @@ export const CityInputForm = () => {
   const formik = useFormik({
     initialValues,
     validationSchema: CityInputFormSchema,
-    onSubmit: (
+    onSubmit: async (
       values: CountryInputProps,
       actions: FormikHelpers<CountryInputProps>
     ) => {
       try {
         actions.setSubmitting(true);
-        handleOnClick(values);
+        await handleOnClick(values);
       } catch (error) {
         alert(error);
       } finally {
@@ -93,12 +93,17 @@ export const CityInputForm = () => {
         variant="filled"
         error={Boolean(formik.errors.city) && formik.touched.city}
       >
-        <InputLabel htmlFor="filled-adornment-password" sx={{ color: "gray" }}>
+        <InputLabel
+          data-testid="city_input_label"
+          htmlFor="city"
+          sx={{ color: "gray" }}
+        >
           Enter a City
         </InputLabel>
         <FilledInput
           id="city"
           name="city"
+          data-testid="city_input"
           value={formik.values.city}
           onChange={formik.handleChange}
           sx={{
@@ -112,6 +117,7 @@ export const CityInputForm = () => {
                 sx={{ color: "#fff" }}
                 type="submit"
                 aria-describedby="search-city-error"
+                data-testid="search_submit"
               >
                 {<SearchIcon />}
               </IconButton>
@@ -119,7 +125,7 @@ export const CityInputForm = () => {
           }
         />
         {Boolean(formik.errors.city) && formik.touched.city && (
-          <FormHelperText id="search-city-error">
+          <FormHelperText id="search-city-error" data-testid="city-error">
             {formik.errors.city}
           </FormHelperText>
         )}

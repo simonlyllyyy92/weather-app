@@ -41,7 +41,7 @@
 
 .card_left_charts_box .card_left_charts {
   width: 80%;
-  height: 80%;
+  height: 90%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -82,6 +82,7 @@
 
 .card_title .weather {
   margin-left: 36px;
+
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -91,4 +92,35 @@
   color: white;
   font-size: 18px;
   text-align: center;
+}
+
+/* responsiveness */
+@media only screen and (max-width: 1300px) {
+  .card_left {
+    width: 100%;
+    height: 60%;
+  }
+  .card_left_welcome {
+    width: 100%;
+    height: 65%;
+  }
+  .card_left .card_left_content_box {
+    height: 90% !important;
+  }
+  .card_left_charts {
+    height: 90% !important;
+  }
+  .card_title .temp {
+    font-size: 58px;
+  }
+  .iconlabel {
+    font-size: 12px;
+  }
+  .card_left_charts_box .card_left_charts {
+    width: 530px;
+    height: 320px !important;
+  }
+}
+
+@media screen {
 }

@@ -1,5 +1,5 @@
 import "./charts.styles.css";
-import React, { useEffect, useRef, useContext } from "react";
+import React, { useEffect, useRef, useContext, useState } from "react";
 //Context
 import { WeatherContext } from "../../context/set_context";
 //Charts Generation utils function
@@ -17,9 +17,11 @@ export interface DataType {
 export const D3Charts = () => {
   const svgRef = useRef(null);
   const { mapped_current_weather } = useContext(WeatherContext);
-
   useEffect(() => {
     ChartsGeneration(svgRef, mapped_current_weather);
+    window.addEventListener("resize", () =>
+      ChartsGeneration(svgRef, mapped_current_weather)
+    );
   }, [mapped_current_weather]);
 
   return (

@@ -9,6 +9,8 @@ import Divider from "@mui/material/Divider";
 import { WeatherContext } from "../../context/set_context";
 //Static config
 import { day_list } from "../../config/week_day.config";
+//Style
+import "./styles/Forecastlist.styles.css";
 
 /**
  * @Component List Item in Card Right Componenent
@@ -21,13 +23,14 @@ export const Forecastlist = (): JSX.Element => {
 
   //Render list of weather info if forecast from context has value
   //or
-  //Render nothing but a react fragment
+  //Render nothing but a react
   return (
-    <>
+    <div className="forecast-weather-list-container">
+      <h3 style={{ color: "#17C2E9" }}>Upcoming</h3>
       {forecast.length > 0 && (
         <List
           sx={{
-            width: "90%",
+            width: "100%",
             bgcolor: "#1F324A",
           }}
         >
@@ -55,7 +58,6 @@ export const Forecastlist = (): JSX.Element => {
                     width: "40%",
                   }}
                 />
-
                 <ListItemText
                   primary={`${Math.round(item.day?.mintemp_c)}°C ~ ${Math.round(
                     item.day?.maxtemp_c
@@ -83,6 +85,6 @@ export const Forecastlist = (): JSX.Element => {
           ))}
         </List>
       )}
-    </>
+    </div>
   );
 };
