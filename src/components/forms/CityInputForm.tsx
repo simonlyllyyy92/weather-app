@@ -22,6 +22,10 @@ export interface CountryInputProps {
   city: string;
 }
 
+export interface ErrorMsg {
+  code: number;
+  message: string;
+}
 /**
  * @Component Form used for city input in Card Right component
  * @returns formik controlled MUI form
@@ -30,6 +34,7 @@ export interface CountryInputProps {
 export const CityInputForm = () => {
   // Handle state function used from HOC context
   const { handleCurrentWeatherChange } = useContext(WeatherContext);
+
   // Helper functions used for above
   const mapData = (props: Array<any>) => {
     return props.map((item) => {
@@ -76,12 +81,9 @@ export const CityInputForm = () => {
       actions: FormikHelpers<CountryInputProps>
     ) => {
       try {
-        actions.setSubmitting(true);
         await handleOnClick(values);
-      } catch (error) {
+      } catch (error: any) {
         alert(error);
-      } finally {
-        actions.setSubmitting(false);
       }
     },
   });

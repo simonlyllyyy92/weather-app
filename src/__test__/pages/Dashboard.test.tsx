@@ -1,16 +1,9 @@
-import { render, screen, waitFor } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import { Dashboard } from "../../pages/Dashboard";
 
-jest.mock("../../context/set_context", () => ({
-  ...jest.requireActual("../../context/set_context"),
-}));
-
 describe("Dashboard Pages", () => {
-  beforeEach(() => {
-    render(<Dashboard />);
-  });
-
   test("Dashboard page should render welcome page correctly, if no inputs are entered at the beginning", () => {
+    render(<Dashboard />);
     //show header and sub header
     const header = screen.getByTestId("app_header");
     const sub_header = screen.getByTestId("app_sub_header");

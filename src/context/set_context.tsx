@@ -36,6 +36,8 @@ const init_value: WeatherContextProps = {
 
 export const WeatherContext = createContext<WeatherContextProps>(init_value);
 
+//For testing
+
 export const WeatherContextProvider = memo(
   ({ children }: { children: any }): JSX.Element => {
     const handleTempChange = (newTemp: string) => {

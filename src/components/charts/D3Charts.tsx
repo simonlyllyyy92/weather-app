@@ -1,5 +1,5 @@
 import "./charts.styles.css";
-import React, { useEffect, useRef, useContext, useState } from "react";
+import React, { useEffect, useRef, useContext } from "react";
 //Context
 import { WeatherContext } from "../../context/set_context";
 //Charts Generation utils function
@@ -19,15 +19,18 @@ export const D3Charts = () => {
   const { mapped_current_weather } = useContext(WeatherContext);
   useEffect(() => {
     ChartsGeneration(svgRef, mapped_current_weather);
-    window.addEventListener("resize", () =>
+    const listener = window.addEventListener("resize", () =>
       ChartsGeneration(svgRef, mapped_current_weather)
     );
+    return () => {
+      window.removeEventListener("resize", () => listener);
+    };
   }, [mapped_current_weather]);
 
   return (
     <>
       <div id="d3_container">
-        <svg ref={svgRef}></svg>
+        <svg ref={svgRef} data-testid="d3_charts"></svg>
       </div>
       <div id="tooltip"></div>
     </>

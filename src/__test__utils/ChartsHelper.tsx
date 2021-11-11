@@ -1,24 +1,19 @@
 import * as d3 from "d3";
-import { MutableRefObject } from "react";
 
 //Type from context
 import { DataType } from "../context/set_context";
 
 /**
- * @Function  Helper function for charts generation for chart left component
- * @param svgRef Reference of svg from d3charts component
- * @param mapped_current_weather  State Value from Context, here being passed as props from d3charts
+ * @Function This is a similar charts generate function But for testing purposes
+ * @param mappedData  Data from Mock Service work will be passed in
  */
 
-export const ChartsGeneration = (
-  svgRef: MutableRefObject<null>,
-  mapped_current_weather: DataType[]
-) => {
-  //Value from Context, here as props
-  let mappedData = mapped_current_weather;
-  const currentWidth = parseInt(d3.select("#d3_container").style("width")) - 10;
-  const currentHeight =
-    parseInt(d3.select("#d3_container").style("height")) - 10;
+export const chartsGenerate = (mappedData: DataType[]) => {
+  /**
+   * For testing purposes we set up fix width and height here
+   */
+  const currentWidth = 600;
+  const currentHeight = 400;
 
   //Setting default svg height and width
   const margin = { top: 28, right: 20, bottom: 30, left: 20 };
@@ -46,7 +41,8 @@ export const ChartsGeneration = (
 
   //Set up svg image height and width
   const svg = d3
-    .select(svgRef.current)
+    .select("#d3_container")
+    .append("svg")
     .attr("width", currentWidth)
     .attr("height", currentHeight);
 
@@ -104,4 +100,6 @@ export const ChartsGeneration = (
     .attr("stroke", "#999")
     .attr("transform", `translate(20,20)`)
     .attr("d", area);
+
+  return svg;
 };

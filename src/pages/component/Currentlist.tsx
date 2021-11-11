@@ -30,92 +30,93 @@ export const Currentlist = (): JSX.Element => {
   //Render nothing but a react fragment
   return (
     <div className="current-weather-list-container">
-      <h3 style={{ color: "#17C2E9" }}>Current</h3>
+      {forecast[0] ? (
+        <>
+          <h3 style={{ color: "#17C2E9" }}>Current</h3>
+          <List
+            sx={{
+              width: "100%",
+              bgcolor: "#1F324A",
+            }}
+          >
+            <div>
+              <ListItem data-testid={"current_list"}>
+                <ListItemAvatar>
+                  <img src={humidity} alt="" width="48px" height="48px" />
+                </ListItemAvatar>
+                <ListItemText
+                  primary="Average Humidity (%)"
+                  primaryTypographyProps={{
+                    color: "white",
+                  }}
+                  sx={{
+                    width: "70%",
+                  }}
+                />
+                <ListItemText
+                  primary={listItemOne.day?.avghumidity}
+                  primaryTypographyProps={{
+                    color: "white",
+                  }}
+                  sx={{
+                    width: "30%",
+                  }}
+                />
+              </ListItem>
 
-      {forecast[0] && (
-        <List
-          sx={{
-            width: "100%",
-            bgcolor: "#1F324A",
-          }}
-        >
-          <div>
-            <ListItem>
-              <ListItemAvatar>
-                <img src={humidity} alt="" width="48px" height="48px" />
-              </ListItemAvatar>
-              <ListItemText
-                primary="Average Humidity (%)"
-                primaryTypographyProps={{
-                  color: "white",
-                }}
-                sx={{
-                  width: "70%",
-                }}
-              />
-              <ListItemText
-                primary={listItemOne.day?.avghumidity}
-                primaryTypographyProps={{
-                  color: "white",
-                }}
-                sx={{
-                  width: "30%",
-                }}
-              />
-            </ListItem>
+              <Divider component="li" sx={{ borderColor: "#3C4E76" }} />
 
-            <Divider component="li" sx={{ borderColor: "#3C4E76" }} />
-
-            <ListItem>
-              <ListItemAvatar>
-                <img src={visibility} alt="" width="48px" height="48px" />
-              </ListItemAvatar>
-              <ListItemText
-                primary="Average visibility (km)"
-                primaryTypographyProps={{
-                  color: "white",
-                }}
-                sx={{
-                  width: "70%",
-                }}
-              />
-              <ListItemText
-                primary={listItemOne.day?.avgvis_km}
-                primaryTypographyProps={{
-                  color: "white",
-                }}
-                sx={{
-                  width: "30%",
-                }}
-              />
-            </ListItem>
-            <Divider component="li" sx={{ borderColor: "#3C4E76" }} />
-            <ListItem>
-              <ListItemAvatar>
-                <img src={chanceOfRain} alt="" width="48px" height="48px" />
-              </ListItemAvatar>
-              <ListItemText
-                primary="Chance of Rain  (mm)"
-                primaryTypographyProps={{
-                  color: "white",
-                }}
-                sx={{
-                  width: "70%",
-                }}
-              />
-              <ListItemText
-                primary={listItemOne.day?.daily_chance_of_rain}
-                primaryTypographyProps={{
-                  color: "white",
-                }}
-                sx={{
-                  width: "30%",
-                }}
-              />
-            </ListItem>
-          </div>
-        </List>
-      )}
+              <ListItem data-testid={"current_list"}>
+                <ListItemAvatar>
+                  <img src={visibility} alt="" width="48px" height="48px" />
+                </ListItemAvatar>
+                <ListItemText
+                  primary="Average visibility (km)"
+                  primaryTypographyProps={{
+                    color: "white",
+                  }}
+                  sx={{
+                    width: "70%",
+                  }}
+                />
+                <ListItemText
+                  primary={listItemOne.day?.avgvis_km}
+                  primaryTypographyProps={{
+                    color: "white",
+                  }}
+                  sx={{
+                    width: "30%",
+                  }}
+                />
+              </ListItem>
+              <Divider component="li" sx={{ borderColor: "#3C4E76" }} />
+              <ListItem data-testid={"current_list"}>
+                <ListItemAvatar>
+                  <img src={chanceOfRain} alt="" width="48px" height="48px" />
+                </ListItemAvatar>
+                <ListItemText
+                  primary="Chance of Rain  (mm)"
+                  primaryTypographyProps={{
+                    color: "white",
+                  }}
+                  sx={{
+                    width: "70%",
+                  }}
+                />
+                <ListItemText
+                  primary={listItemOne.day?.daily_chance_of_rain}
+                  primaryTypographyProps={{
+                    color: "white",
+                  }}
+                  sx={{
+                    width: "30%",
+                  }}
+                />
+              </ListItem>
+            </div>
+          </List>
+        </>
+      ) : null}
     </div>
   );
 };

@@ -40,7 +40,9 @@ export const CardLeft = (): JSX.Element => {
                 <div className="city_name" data-testid="target_city">
                   {city}
                 </div>
-                <div className="city_time">{local_time}</div>
+                <div className="city_time" data-testid="target_time">
+                  {local_time}
+                </div>
               </div>
             </div>
             <div className="card_left_charts_box">
@@ -50,9 +52,12 @@ export const CardLeft = (): JSX.Element => {
             </div>
 
             <div className="card_title">
-              <div className="temp">{`${current_temp}°`}</div>
+              <div
+                className="temp"
+                data-testid="curr_temp"
+              >{`${current_temp}°`}</div>
 
-              <div className="weather">
+              <div className="weather" data-testid="curr_weather">
                 <img
                   src={weather_icon}
                   alt=""
@@ -62,7 +67,7 @@ export const CardLeft = (): JSX.Element => {
                 />
                 <span className="iconlabel">{weather_label}</span>
               </div>
-              <div className="weather">
+              <div className="weather" data-testid="curr_wind">
                 <img
                   src={windy_icon}
                   alt=""
