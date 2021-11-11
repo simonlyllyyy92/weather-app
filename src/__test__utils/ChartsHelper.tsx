@@ -1,7 +1,7 @@
 import * as d3 from "d3";
 
 //Type from context
-import { DataType } from "../context/set_context";
+import { DataType } from "../context/setContext";
 
 /**
  * @Function This is a similar charts generate function But for testing purposes

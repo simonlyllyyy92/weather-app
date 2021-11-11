@@ -1,7 +1,7 @@
 import "./charts.styles.css";
 import React, { useEffect, useRef, useContext } from "react";
 //Context
-import { WeatherContext } from "../../context/set_context";
+import { WeatherContext } from "../../context/setContext";
 //Charts Generation utils function
 import { ChartsGeneration } from "../../utils/ChartsGeneration";
 

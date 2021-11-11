@@ -6,7 +6,7 @@ import ListItemText from "@mui/material/ListItemText";
 import ListItemAvatar from "@mui/material/ListItemAvatar";
 import Divider from "@mui/material/Divider";
 //Context
-import { WeatherContext } from "../../context/set_context";
+import { WeatherContext } from "../../context/setContext";
 //Static config
 import humidity from "../../assets/weathorIcon/icon/blue-humidity.png";
 import visibility from "../../assets/weathorIcon/icon/visibility.png";

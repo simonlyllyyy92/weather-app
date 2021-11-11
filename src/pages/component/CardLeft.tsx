@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 //Context
-import { WeatherContext } from "../../context/set_context";
+import { WeatherContext } from "../../context/setContext";
 //Charts
 import { D3Charts } from "../../components/charts/D3Charts";
 //Styles and assets

@@ -14,7 +14,7 @@ import IconButton from "@mui/material/IconButton";
 import SearchIcon from "@mui/icons-material/Search";
 import { FormHelperText } from "@mui/material";
 //Context
-import { WeatherContext } from "../../context/set_context";
+import { WeatherContext } from "../../context/setContext";
 //Validation
 import { CityInputFormSchema } from "./CityInputForm.schema";
 

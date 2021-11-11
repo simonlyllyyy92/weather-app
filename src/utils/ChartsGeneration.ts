@@ -2,7 +2,7 @@ import * as d3 from "d3";
 import { MutableRefObject } from "react";
 
 //Type from context
-import { DataType } from "../context/set_context";
+import { DataType } from "../context/setContext";
 
 /**
  * @Function  Helper function for charts generation for chart left component

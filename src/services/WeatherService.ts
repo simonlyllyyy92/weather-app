@@ -1,4 +1,4 @@
-import { httpClient } from "../axios/http_client";
+import { httpClient } from "../axios/httpClient";
 
 export interface Weather {
   current: any;
